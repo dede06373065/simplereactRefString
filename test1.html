@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script src="./package/react/react.development.js"></script>
+    <script src="./package/react/react-dom.development.js"></script>
+    <script src="./package/react/babel.min.js"></script>
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            show=()=>{
+                const {input1}=this.refs
+                alert(input1.value)
+
+            }
+            show1=()=>{
+                const {input2}=this.refs
+                alert(input2.value)
+            }
+            render() {
+                return (
+                    <div>
+                        <input ref="input1" type="text" />
+                        <button onClick={this.show}>Press me!</button>
+                        <input ref="input2" onBlur={this.show1} type="text" />
+                    </div>
+                )
+            }
+
+        }
+
+
+        ReactDOM.render(<MyComponent />, document.getElementById('test'));
+    </script>
+</body>
+
+</html>
